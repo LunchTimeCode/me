@@ -16,6 +16,7 @@ fn rocket() -> _ {
 
     let path = format!("http://127.0.0.1:{}", port);
 
+    #[allow(clippy::if_same_then_else)]
     if webbrowser::open(&path).is_ok() {
         mount(rocket)
     } else {

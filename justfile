@@ -4,7 +4,6 @@
 @verify: test lint
     echo ------------ verify done! ------------  
 
-
 run *args:
     cargo run -q -- {{args}}
 

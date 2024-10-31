@@ -1,0 +1,5 @@
+## set only when compiled in debug mode, i.e, `cargo build`
+[debug]
+port = 8000
+## only the `json` key from `default` will be overridden; `form` will remain
+limits = { json = "10MiB" }

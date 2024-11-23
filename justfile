@@ -4,8 +4,8 @@
 @verify: test lint
     echo ------------ verify done! ------------  
 
-run *args:
-    cargo run -q -- {{args}}
+run:
+    cargo run
 
 # Watch the source files and run `just verify` when source changes
 watch:

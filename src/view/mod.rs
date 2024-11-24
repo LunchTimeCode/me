@@ -3,6 +3,7 @@ use rocket::response::content;
 
 pub mod about_me;
 pub mod home;
+pub mod exp;
 mod icons;
 pub mod nav;
 

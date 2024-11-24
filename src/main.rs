@@ -30,6 +30,7 @@ fn mount(rocket: Rocket<Build>) -> Rocket<Build> {
             view::nav::get,
             view::about_me::get,
             view::home::get,
+            view::exp::get,
         ],
     );
 

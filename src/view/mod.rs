@@ -2,10 +2,15 @@ use maud::{html, Markup, PreEscaped};
 use rocket::response::content;
 
 pub mod about_me;
-pub mod home;
+mod components;
+pub mod contact;
+pub mod education;
 pub mod exp;
+pub mod home;
 mod icons;
 pub mod nav;
+pub mod projects;
+pub mod skills;
 
 #[get("/")]
 pub fn index() -> content::RawHtml<String> {

@@ -11,7 +11,8 @@ pub fn get() -> content::RawHtml<String> {
 
         header {
             h2 { "Senior Software Developer" }
-            p { em { "Building elegant solutions to complex problems" } }
+            p { em { "Building elegant solutions to complex problems" }
+    }
     div {
         img src="https://i.ibb.co/5BQY0v8/1959be0f-b7f2-4a2d-b719-f5243ad84152.jpg"
         alt="1959be0f-b7f2-4a2d-b719-f5243ad84152"

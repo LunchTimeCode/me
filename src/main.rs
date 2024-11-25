@@ -8,6 +8,8 @@ use tec::mount_tec;
 extern crate rocket;
 
 mod assets;
+mod models;
+mod sources;
 mod tec;
 mod view;
 
@@ -31,6 +33,10 @@ fn mount(rocket: Rocket<Build>) -> Rocket<Build> {
             view::about_me::get,
             view::home::get,
             view::exp::get,
+            view::skills::get,
+            view::education::get,
+            view::contact::get,
+            view::projects::get,
         ],
     );
 

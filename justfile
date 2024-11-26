@@ -22,3 +22,7 @@ lint:
 
 fmt:
     cargo fmt
+
+
+r:
+    cargo install --path . --force

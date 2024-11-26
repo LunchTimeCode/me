@@ -4,18 +4,16 @@ use maud::{html, Markup};
 pub fn list_of(any_vec: Vec<Markup>) -> Markup {
     html! {
         div {
-            ol{
                 @for m in &any_vec {
-                            li { (m) }
+                            div { (m) }
                 }
-            }
         }
     }
 }
 
 pub fn grid_of(any_vec: Vec<Markup>) -> Markup {
     html! {
-        div {
+        div .container {
             div class="grid"{
                 @for m in &any_vec {
                     div { (m) }

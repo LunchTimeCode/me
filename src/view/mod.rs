@@ -16,7 +16,6 @@ pub mod skills;
 pub fn index() -> content::RawHtml<String> {
     let raw = page(html! {
         header {
-            div hx-get="/refresh" hx-trigger="every 300ms" {}
             // load nav always
             div hx-get="/nav" hx-trigger="load" {}
             // load home first

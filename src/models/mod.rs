@@ -8,7 +8,7 @@ pub struct Skill {
 }
 
 impl Skill {
-    pub fn new(name: &str, progress: i8, description: &str, projects: Vec<Project>) -> Skill {
+    pub fn new(name: &str, progress: i8, description: &str, projects: Vec<Project>) -> Self {
         Skill {
             name: name.to_string(),
             progress,
@@ -28,38 +28,48 @@ impl Skill {
     pub fn get_description(&self) -> &str {
         &self.description
     }
+
+    pub fn get_projects(&self) -> Vec<Project> {
+        self.projects.clone()
+    }
 }
 
 #[derive(Debug, Clone)]
 pub struct Project {
     name: String,
+    small_description: String,
     app_type: AppType,
     description: String,
-    url: String,
+    url: Option<String>,
+    loc: Option<Loc>,
 }
 
 #[allow(dead_code)]
 impl Project {
-    pub fn new(name: &str, app_type: AppType, description: &str, url: &str) -> Self {
+    pub fn new(
+        name: &str,
+        small_description: &str,
+        app_type: AppType,
+        description: &str,
+        url: Option<String>,
+        loc: Option<Loc>,
+    ) -> Self {
         Project {
             name: name.to_string(),
+            small_description: small_description.to_string(),
             app_type,
             description: description.to_string(),
-            url: url.to_string(),
-        }
-    }
-
-    pub fn only_with_app_type(app_type: AppType) -> Self {
-        Project {
-            name: "".to_string(),
-            app_type,
-            description: "".to_string(),
-            url: "".to_string(),
+            url,
+            loc,
         }
     }
 
     pub fn get_app_type(&self) -> AppType {
         self.app_type.clone()
+    }
+
+    pub fn get_small_description(&self) -> &str {
+        &self.small_description
     }
 
     pub fn get_name(&self) -> &str {
@@ -70,13 +80,17 @@ impl Project {
         &self.description
     }
 
-    pub fn get_url(&self) -> &str {
-        &self.url
+    pub fn get_url(&self) -> Option<String> {
+        self.url.clone()
+    }
+
+    pub fn get_loc(&self) -> Option<Loc> {
+        self.loc.clone()
     }
 }
 
 #[allow(dead_code)]
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum AppType {
     Server,
     Service,
@@ -85,4 +99,24 @@ pub enum AppType {
     Cli,
     RichClient,
     Internal,
+}
+
+#[derive(Debug, Clone)]
+pub struct Loc {
+    files: i32,
+    lines: i32,
+}
+
+impl Loc {
+    pub fn new(files: i32, lines: i32) -> Self {
+        Loc { files, lines }
+    }
+
+    pub fn get_files(&self) -> i32 {
+        self.files
+    }
+
+    pub fn get_lines(&self) -> i32 {
+        self.lines
+    }
 }

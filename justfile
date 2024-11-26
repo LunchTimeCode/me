@@ -25,9 +25,9 @@ fmt:
 
 
 r:
-    sudo cargo install --path . --force
+    cargo install --path . --force
 
 
 export ROCKET_port := "12500"
 rr:
-    sudo me
+    me

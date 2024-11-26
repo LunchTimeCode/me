@@ -26,3 +26,8 @@ fmt:
 
 r:
     cargo install --path . --force
+
+
+export ROCKET_port := "12500"
+rr:
+    me

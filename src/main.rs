@@ -16,6 +16,7 @@ mod view;
 fn rocket() -> _ {
     let rocket = rocket::build();
     let rocket = rocket.configure(rocket::Config::figment().merge(("port", 12500)));
+    let rocket = rocket.configure(rocket::Config::figment().merge(("address", "0.0.0.0")));
 
     mount(rocket)
 }

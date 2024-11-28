@@ -31,3 +31,8 @@ r:
 export ROCKET_port := "12500"
 rr:
     me
+
+image_name := "ghcr.io/lunchtimecode/me"
+    
+build version:
+    docker build -t {{image_name}}:{{version}} .

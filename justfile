@@ -35,4 +35,4 @@ _d_push version:
     docker push {{image_name}}:{{version}}
 
 get_version:
-    cargo metadata --no-deps --format-version 1 | jq -r '.packages.[0].version'
+    cargo metadata --no-deps --format-version 1 | jq -r '.packages[0].version'

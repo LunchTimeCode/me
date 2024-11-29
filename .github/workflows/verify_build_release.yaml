@@ -44,6 +44,7 @@ jobs:
       - id: release
         uses: googleapis/release-please-action@v4
         with:
+          token: ${{ secrets.MY_RELEASE_PLEASE_TOKEN }}
           release-type: rust
 
   # Publish the artifacts (only if `verify` passed, and `release` created release)

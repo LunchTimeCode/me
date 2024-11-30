@@ -54,22 +54,15 @@ fn projects(projects: Vec<Project>) -> Markup {
     let comp: Vec<Markup> = projects.iter().map(|p| project_view(p.clone())).collect();
 
     html! {
-        article {
 
-            body {
                 details {
                     summary {
-                       h3 {"Projects" }
-                       div {
-                           {(grid_of(app_types))}
-                       }
-
+                       h6 {"Projects" }
                     }
                     {(list_of(comp))}
                 }
 
-            }
-        }
+
     }
 }
 
@@ -120,7 +113,7 @@ fn app_type_view(app_type: AppType) -> Markup {
     };
     html! {
             div {
-                kbd {(text)}
+                {(text)}
             }
     }
 }

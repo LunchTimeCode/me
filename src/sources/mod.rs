@@ -58,13 +58,13 @@ pub fn get_skills() -> Vec<Skill> {
                 "TypeFast",
                 "created with egui",
                 AppType::Web,
-                "An applicatin to practice typing, without lags",
+                "An application to practice typing, without lags",
                 Some("https://github.com/SilenLoc/TypeFast".to_string()),
                 Some(Loc::new(19, 1505))
             ),
             Project::new(
                 "Dreamy CLI",
-                "create wit clap",
+                "created wit clap",
                 AppType::Cli,
                 "Tool to manage your dependencies",
                 Some("https://github.com/LunchTimeCode/dreamy-cli".to_string()),

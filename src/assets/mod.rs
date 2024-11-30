@@ -1,14 +1,11 @@
 use rocket::{response::content, Build, Rocket};
 
-pub const JADE: &str = include_str!("../../assets/pico.jade.min.css");
-pub const FUCHSIA: &str = include_str!("../../assets/pico.fuchsia.min.css");
+pub const ORANGE: &str = include_str!("../../assets/pico.orange.min.css");
 
 #[get("/pico.min.css/<theme>")]
 fn pico_code(theme: &str) -> content::RawCss<&'static str> {
     let pico = match theme {
-        "jade" => JADE,
-        "fuchsia" => FUCHSIA,
-        _ => JADE,
+        _ => ORANGE,
     };
     content::RawCss(pico)
 }

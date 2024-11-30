@@ -14,14 +14,13 @@ pub mod nav;
 pub mod projects;
 pub mod skills;
 
-const JADE: &str = r#"<link rel="stylesheet" href="_assets/pico.min.css/jade">"#;
-const FUCHSIA: &str = r#"<link rel="stylesheet" href="_assets/pico.min.css/fuchsia">"#;
+const ORANGE: &str = r#"<link rel="stylesheet" href="_assets/pico.min.css/orange">"#;
 
 #[get("/")]
 pub fn index(theme: Option<Theme>) -> content::RawHtml<String> {
     let link = theme
         .map(|t| t.as_link().to_string())
-        .unwrap_or_else(|| JADE.to_string());
+        .unwrap_or_else(|| ORANGE.to_string());
 
     let raw = page(
         html! {
@@ -82,16 +81,14 @@ fn title(title: impl Into<String>) -> Markup {
 }
 
 pub enum Theme {
-    Jade,
-    Fuchsia,
+    Orange,
 }
 
 impl From<String> for Theme {
     fn from(value: String) -> Self {
         match value.as_str() {
-            "jade" => Theme::Jade,
-            "fuchsia" => Theme::Fuchsia,
-            _ => Theme::Jade,
+            "orange" => Theme::Orange,
+            _ => Theme::Orange,
         }
     }
 }
@@ -99,8 +96,7 @@ impl From<String> for Theme {
 impl Theme {
     pub fn as_link(&self) -> &str {
         match self {
-            Theme::Jade => JADE,
-            Theme::Fuchsia => FUCHSIA,
+            Theme::Orange => ORANGE,
         }
     }
 }

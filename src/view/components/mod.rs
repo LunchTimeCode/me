@@ -11,6 +11,7 @@ pub fn list_of(any_vec: Vec<Markup>) -> Markup {
     }
 }
 
+#[allow(dead_code)]
 pub fn grid_of(any_vec: Vec<Markup>) -> Markup {
     html! {
         div .container {

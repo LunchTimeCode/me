@@ -4,7 +4,7 @@ use rocket::response::content;
 use crate::{
     models::{AppType, Loc, Project, Skill},
     sources::get_skills,
-    view::components::{grid_of, list_of},
+    view::components::list_of,
 };
 
 use super::components;
@@ -50,7 +50,6 @@ fn skill_view(skill: Skill) -> Markup {
 fn projects(projects: Vec<Project>) -> Markup {
     let mut app_types: Vec<AppType> = projects.iter().map(|p| p.get_app_type()).collect();
     app_types.dedup_by(|a, b| a == b);
-    let app_types: Vec<Markup> = app_types.iter().map(|a| app_type_view(a.clone())).collect();
     let comp: Vec<Markup> = projects.iter().map(|p| project_view(p.clone())).collect();
 
     html! {

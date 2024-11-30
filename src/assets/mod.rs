@@ -2,12 +2,9 @@ use rocket::{response::content, Build, Rocket};
 
 pub const ORANGE: &str = include_str!("../../assets/pico.orange.min.css");
 
-#[get("/pico.min.css/<theme>")]
-fn pico_code(theme: &str) -> content::RawCss<&'static str> {
-    let pico = match theme {
-        _ => ORANGE,
-    };
-    content::RawCss(pico)
+#[get("/pico.min.css")]
+fn pico_code() -> content::RawCss<&'static str> {
+    content::RawCss(ORANGE)
 }
 
 #[get("/app.css")]

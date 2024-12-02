@@ -1,3 +1,4 @@
+use components::nav_button_with_class;
 use maud::{html, Markup, PreEscaped};
 use rocket::http::Status;
 use rocket::request::{self, FromRequest, Request};
@@ -12,7 +13,6 @@ pub mod home;
 mod icons;
 pub mod nav;
 pub mod projects;
-pub mod skills;
 
 const ORANGE: &str = r#"<link rel="stylesheet" href="_assets/pico.min.css">"#;
 
@@ -46,6 +46,7 @@ const PICO_EXT: &str = r#"<link rel="stylesheet" href="_assets/pico_ext.css">"#;
 const HTMX: &str = r#"<script src="/_assets/htmx.min.js"></script>"#;
 const ALPINE: &str = r#"<script src="/_assets/alpine.min.js"></script>"#;
 const REFRESH: &str = r#"<script src="/_assets/refresh.js"></script>"#;
+const LOADER: &str = r#"<script type="text/javascript" src="/_assets/loader.js"></script>"#;
 
 pub fn page(markup: Markup, pico_css: Markup) -> Markup {
     html! {
@@ -54,7 +55,7 @@ pub fn page(markup: Markup, pico_css: Markup) -> Markup {
             head {
                 ({scripts()})
                 ({pico_css})
-                ({title("Welcome to me")})
+                ({title("Silen Locatelli")})
             }
 
             body class="container" {
@@ -71,6 +72,7 @@ fn scripts() -> Markup {
        (PreEscaped(ALPINE))
        (PreEscaped(PICO_EXT))
        (PreEscaped(REFRESH))
+       (PreEscaped(LOADER))
     }
 }
 
@@ -110,5 +112,16 @@ impl<'r> FromRequest<'r> for Theme {
             Some(key) => request::Outcome::Success(key.to_string().into()),
             None => request::Outcome::Error((Status::Unauthorized, ())),
         }
+    }
+}
+
+fn to_contact(title: &str) -> Markup {
+    to_contact_with_class(title, None)
+}
+
+fn to_contact_with_class(title: &str, classes: Option<String>) -> Markup {
+    let classes = classes.unwrap_or_default();
+    html! {
+        (nav_button_with_class(title, "/contact", classes.as_str()))
     }
 }

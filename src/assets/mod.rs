@@ -46,7 +46,7 @@ pub fn mount_assets(rocket: Rocket<Build>) -> Rocket<Build> {
             app_css,
             pico_code,
             pico_ext_css,
-            theme_chooser_code
+            theme_chooser_code,
         ],
     )
 }

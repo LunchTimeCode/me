@@ -1,40 +1,4 @@
 #[derive(Debug, Clone)]
-pub struct Skill {
-    name: String,
-    progress: i8,
-    description: String,
-    #[allow(dead_code)]
-    projects: Vec<Project>,
-}
-
-impl Skill {
-    pub fn new(name: &str, progress: i8, description: &str, projects: Vec<Project>) -> Self {
-        Skill {
-            name: name.to_string(),
-            progress,
-            description: description.to_string(),
-            projects,
-        }
-    }
-
-    pub fn get_progress(&self) -> i8 {
-        self.progress
-    }
-
-    pub fn get_name(&self) -> &str {
-        &self.name
-    }
-
-    pub fn get_description(&self) -> &str {
-        &self.description
-    }
-
-    pub fn get_projects(&self) -> Vec<Project> {
-        self.projects.clone()
-    }
-}
-
-#[derive(Debug, Clone)]
 pub struct Project {
     name: String,
     small_description: String,

@@ -24,8 +24,8 @@ pub fn grid_of(any_vec: Vec<Markup>) -> Markup {
     }
 }
 
-pub fn progress_out_of_hundred(progress: i8) -> Markup {
+pub fn nav_button_with_class(text: &str, path: &str, class: &str) -> Markup {
     html! {
-        progress value=(progress) max="100" {}
+        button class=(class) hx-get=(path) hx-target="#body" { (text) }
     }
 }

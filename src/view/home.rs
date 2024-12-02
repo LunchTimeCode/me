@@ -24,15 +24,6 @@ pub fn get() -> content::RawHtml<String> {
         }
 
         body class="contact-info"{
-            p {
-                "📧 " a href="mailto:silen.locatelli@gmx.ch" { "silen.locatelli@gmx.ch" } br;
-                "📍 " "Oberwil BL, Switzlerland"
-            }
-        }
-
-
-
-        footer {
             // GitHub
             a class="social-icon" href="https://github.com/silenloc" {
                  "GitHub"
@@ -43,7 +34,14 @@ pub fn get() -> content::RawHtml<String> {
              {
                   (PreEscaped(icons::LINKEDIN))
             }
-        }                       }    }
+        }
+
+
+        footer {
+
+             (super::to_contact_with_class("Let's connect!", Some("outline primary".to_string())))
+
+        }                 }    }
     .into_string();
     content::RawHtml(raw)
 }

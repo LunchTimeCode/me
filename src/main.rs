@@ -29,7 +29,6 @@ fn mount(rocket: Rocket<Build>) -> Rocket<Build> {
             view::about_me::get,
             view::home::get,
             view::exp::get,
-            view::skills::get,
             view::education::get,
             view::contact::get,
             view::projects::get,

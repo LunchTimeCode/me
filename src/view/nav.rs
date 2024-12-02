@@ -1,21 +1,26 @@
 use maud::html;
 use rocket::response::content;
 
+use crate::view::components::nav_button_with_class;
+
 #[get("/nav")]
 pub fn get() -> content::RawHtml<String> {
     let raw = html! {
         nav {
             ul {
-                li { h1 { "Silen Locatelli" } }
+                li {
+            a href="/" { 
+                h1 { "Silen Locatelli" }
+            }
+                     }
             }
             ul {
-                li { button class="outline primary" hx-get="/home" hx-target="#body" { "Home" } }
-                li { button class="outline contrast" hx-get="/about-me" hx-target="#body"  { "About me" } }
-                li { button class="outline secondary" hx-get="/exp" hx-target="#body"  { "Experience" } }
-                li { button class="outline secondary" hx-get="/skills" hx-target="#body" { "Skills" } }
-                li { button class="outline secondary" hx-get="/projects" hx-target="#body"  { "Projects" } }
-                li { button class="outline secondary" hx-get="/education" hx-target="#body"  { "Education" } }
-                li { button class="outline secondary" hx-get="/contact" hx-target="#body" { "Contact" } }
+                li { (nav_button_with_class("Home", "/home", "outline contrast")) }
+                li { (nav_button_with_class("About me", "/about-me", "outline contrast")) }
+                li { (nav_button_with_class("Experience", "/exp", "outline contrast")) }
+                li { (nav_button_with_class("Projects", "/projects", "outline contrast")) }
+                li { (nav_button_with_class("Education", "/education", "outline contrast")) }
+                li { (super::to_contact_with_class("Contact", Some("outline contrast".to_string()))) }
             }
         }
     }

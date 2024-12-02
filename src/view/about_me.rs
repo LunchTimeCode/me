@@ -44,10 +44,7 @@ pub fn get() -> content::RawHtml<String> {
                                     li { "Sharing knowledge through speaking" }
                                 }
                             }
-                            footer {
-                                p {
-                                    "Interested in collaboration? "
-                                    a href="/" { "Let's connect!" }
-                                }                            }                        }   }.into_string();
+                            footer {                                   (super::to_contact("Let's connect!"))                           
+                            }}}.into_string();
     content::RawHtml(raw)
 }

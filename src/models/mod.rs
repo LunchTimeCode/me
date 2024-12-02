@@ -3,9 +3,23 @@ pub struct Project {
     name: String,
     small_description: String,
     app_type: AppType,
+    language: Language,
     description: String,
     url: Option<String>,
     loc: Option<Loc>,
+}
+
+#[allow(dead_code)]
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum Language {
+    Rust,
+    Java,
+    Kotlin,
+    TypeScript,
+    JavaScript,
+    Python,
+    Shell,
+    Other,
 }
 
 #[allow(dead_code)]
@@ -14,6 +28,7 @@ impl Project {
         name: &str,
         small_description: &str,
         app_type: AppType,
+        language: Language,
         description: &str,
         url: Option<String>,
         loc: Option<Loc>,
@@ -22,6 +37,7 @@ impl Project {
             name: name.to_string(),
             small_description: small_description.to_string(),
             app_type,
+            language,
             description: description.to_string(),
             url,
             loc,
@@ -50,6 +66,10 @@ impl Project {
 
     pub fn get_loc(&self) -> Option<Loc> {
         self.loc.clone()
+    }
+
+    pub fn get_language(&self) -> Language {
+        self.language.clone()
     }
 }
 

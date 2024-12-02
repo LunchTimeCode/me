@@ -6,6 +6,7 @@ use tec::mount_tec;
 extern crate rocket;
 
 mod assets;
+mod charts;
 mod models;
 mod sources;
 mod tec;

@@ -1,23 +1,39 @@
-use maud::{html, Markup};
+use maud::{html, Markup, PreEscaped};
 use rocket::response::content;
 
 use crate::{
-    models::{AppType, Loc, Project},
+    charts,
+    models::{AppType, Language, Loc, Project},
     sources::get_projects,
     view::components::list_of,
 };
 
 #[get("/projects")]
 pub async fn get() -> content::RawHtml<String> {
-    let comp: Vec<Markup> = get_projects()
+    let p = get_projects();
+    let rust = p
         .iter()
-        .map(|p| project_view(p.clone()))
-        .collect();
+        .filter(|p| p.get_language() == Language::Rust)
+        .count() as f64;
+    let kotlin = p
+        .iter()
+        .filter(|p| p.get_language() == Language::Kotlin)
+        .count() as f64;
+
+    let data = vec![(rust, "Rust".to_string()), (kotlin, "Kotlin".to_string())];
+
+    let chart = charts::get(data);
+
+    let comp: Vec<Markup> = p.iter().map(|p| project_view(p.clone())).collect();
 
     let raw = html! {
         article {
           header {
             h2 { "Projects" }
+            details{
+                summary { "Chart" }
+                {(PreEscaped(chart))}
+            }
           }
         body{
                (list_of(comp))

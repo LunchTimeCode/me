@@ -45,8 +45,7 @@ const CSS: &str = r#"<link rel="stylesheet" href="_assets/app.css">"#;
 const PICO_EXT: &str = r#"<link rel="stylesheet" href="_assets/pico_ext.css">"#;
 const HTMX: &str = r#"<script src="/_assets/htmx.min.js"></script>"#;
 const ALPINE: &str = r#"<script src="/_assets/alpine.min.js"></script>"#;
-const REFRESH: &str = r#"<script src="/_assets/refresh.js"></script>"#;
-const LOADER: &str = r#"<script type="text/javascript" src="/_assets/loader.js"></script>"#;
+const ECHARTS: &str = r#"<script src="/_assets/echarts.js"></script>"#;
 
 pub fn page(markup: Markup, pico_css: Markup) -> Markup {
     html! {
@@ -71,8 +70,7 @@ fn scripts() -> Markup {
        (PreEscaped(HTMX))
        (PreEscaped(ALPINE))
        (PreEscaped(PICO_EXT))
-       (PreEscaped(REFRESH))
-       (PreEscaped(LOADER))
+       (PreEscaped(ECHARTS))
     }
 }
 

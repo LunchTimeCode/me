@@ -19,6 +19,12 @@ fn htmx_code() -> content::RawJavaScript<&'static str> {
     content::RawJavaScript(app)
 }
 
+#[get("/echarts.js")]
+fn echarts_code() -> content::RawJavaScript<&'static str> {
+    let app = include_str!("../../assets/echarts.js");
+    content::RawJavaScript(app)
+}
+
 #[get("/theme_chooser.js")]
 fn theme_chooser_code() -> content::RawJavaScript<&'static str> {
     let app = include_str!("../../assets/theme_chooser.js");
@@ -47,6 +53,7 @@ pub fn mount_assets(rocket: Rocket<Build>) -> Rocket<Build> {
             pico_code,
             pico_ext_css,
             theme_chooser_code,
+            echarts_code
         ],
     )
 }

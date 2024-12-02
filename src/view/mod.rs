@@ -14,7 +14,7 @@ pub mod nav;
 pub mod projects;
 pub mod skills;
 
-const ORANGE: &str = r#"<link rel="stylesheet" href="_assets/pico.min.css/orange">"#;
+const ORANGE: &str = r#"<link rel="stylesheet" href="_assets/pico.min.css">"#;
 
 #[get("/")]
 pub fn index(theme: Option<Theme>) -> content::RawHtml<String> {

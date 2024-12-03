@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0](https://github.com/LunchTimeCode/me/compare/v0.1.1...v0.2.0) (2024-12-03)
+
+
+### Features
+
+* charts yay ([6efd481](https://github.com/LunchTimeCode/me/commit/6efd4818e3e9859f01b0d00af893aa83c403709b))
+* charts yay ([0b5b36b](https://github.com/LunchTimeCode/me/commit/0b5b36b33048e992bf9aaaa51a72f5b28361f7d5))
+* new look ([25dc202](https://github.com/LunchTimeCode/me/commit/25dc202fe5146080dac21e6b40cb53c2ac21b267))
+
+
+### Bug Fixes
+
+* remove skills ([0a9260f](https://github.com/LunchTimeCode/me/commit/0a9260f513b6eca6d7536894d285af0ffa1effb3))
+* styling ([036dc3c](https://github.com/LunchTimeCode/me/commit/036dc3c52c49a1dcbc9f49656013071e0daf8acd))
+* warnings ([6edbf27](https://github.com/LunchTimeCode/me/commit/6edbf27f4217cfcece95dd105963e9babf4d24d2))
+
 ## [0.1.1](https://github.com/LunchTimeCode/me/compare/v0.1.0...v0.1.1) (2024-11-29)
 
 

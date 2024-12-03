@@ -33,6 +33,7 @@ fn mount(rocket: Rocket<Build>) -> Rocket<Build> {
             view::education::get,
             view::contact::get,
             view::projects::get,
+            view::projects::get_charts,
         ],
     );
 

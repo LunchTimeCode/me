@@ -9,7 +9,7 @@ pub fn get_projects() -> Vec<Project> {
             Language::Kotlin,
             "Server side application",
             None,
-            Some(Loc::new(65598, 53073)),
+            Some(Loc::new(6559, 5307)),
         ),
         Project::new(
             "Desktop App",
@@ -18,7 +18,7 @@ pub fn get_projects() -> Vec<Project> {
             Language::Kotlin,
             "Transfer Price Calculation Tool",
             None,
-            Some(Loc::new(3563, 314638)),
+            Some(Loc::new(356, 31463)),
         ),
         Project::new(
             "Desktop App Plugin",
@@ -27,7 +27,7 @@ pub fn get_projects() -> Vec<Project> {
             Language::Kotlin,
             "Customized Code for a client",
             None,
-            Some(Loc::new(128, 9870)),
+            Some(Loc::new(128, 987)),
         ),
         Project::new(
             "Desktop App Plugin",
@@ -36,7 +36,7 @@ pub fn get_projects() -> Vec<Project> {
             Language::Kotlin,
             "Customized Code for a client",
             None,
-            Some(Loc::new(138, 10317)),
+            Some(Loc::new(138, 1031)),
         ),
         Project::new(
             "TypeFast",

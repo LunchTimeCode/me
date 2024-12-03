@@ -1,22 +1,31 @@
 use charming::{
-    component::Legend,
-    element::ItemStyle,
-    series::{Pie, PieRoseType},
+    component::{Legend, Title},
+    element::{Orient, Tooltip, Trigger},
+    series::Pie,
     Chart, HtmlRenderer,
 };
 
-pub fn get(langs: Vec<(f64, String)>) -> String {
-    let chart = Chart::new().legend(Legend::new().top("bottom")).series(
-        Pie::new()
-            .name("Languages")
-            .rose_type(PieRoseType::Area)
-            .radius(vec!["50", "250"])
-            .center(vec!["50%", "50%"])
-            .item_style(ItemStyle::new().border_radius(8))
-            .data(langs),
-    );
+#[derive(Debug, Clone, Copy)]
+pub struct ChartSize {
+    pub width: u64,
+    pub height: u64,
+}
 
-    let renderer =
-        HtmlRenderer::new("my charts", 1000, 800).theme(charming::theme::Theme::Halloween);
+impl ChartSize {
+    pub fn new(width: u64, height: u64) -> Self {
+        Self { width, height }
+    }
+}
+
+pub fn create(title: impl Into<String>, langs: Vec<(f64, String)>, size: &ChartSize) -> String {
+    let title: String = title.into();
+    let chart = Chart::new()
+        .title(Title::new().text(title.clone()).left("center"))
+        .legend(Legend::new().orient(Orient::Vertical).left("left"))
+        .tooltip(Tooltip::new().trigger(Trigger::Item))
+        .series(Pie::new().name(title.clone()).radius(100.0).data(langs));
+
+    let renderer = HtmlRenderer::new("main_chart", size.width, size.height)
+        .theme(charming::theme::Theme::Walden);
     renderer.render(&chart).unwrap()
 }

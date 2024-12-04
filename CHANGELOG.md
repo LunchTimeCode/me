@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/LunchTimeCode/me/compare/v0.2.0...v0.2.1) (2024-12-04)
+
+
+### Bug Fixes
+
+* versions ([3e5e873](https://github.com/LunchTimeCode/me/commit/3e5e87327b0009aaec51d7fa2320acc0dde0939e))
+
 ## [0.2.0](https://github.com/LunchTimeCode/me/compare/v0.1.1...v0.2.0) (2024-12-03)
 
 

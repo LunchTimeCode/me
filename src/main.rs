@@ -6,9 +6,6 @@ use tec::mount_tec;
 extern crate rocket;
 
 mod assets;
-mod charts;
-mod models;
-mod sources;
 mod tec;
 mod view;
 
@@ -22,20 +19,7 @@ fn rocket() -> _ {
 }
 
 fn mount(rocket: Rocket<Build>) -> Rocket<Build> {
-    let with_index = rocket.mount(
-        "/",
-        routes![
-            view::index,
-            view::nav::get,
-            view::about_me::get,
-            view::home::get,
-            view::exp::get,
-            view::education::get,
-            view::contact::get,
-            view::projects::get,
-            view::projects::get_charts,
-        ],
-    );
+    let with_index = rocket.mount("/", routes![view::index,]);
 
     let with_assets = mount_assets(with_index);
 

@@ -1,15 +1,26 @@
 use rocket::{response::content, Build, Rocket};
 
-pub const ORANGE: &str = include_str!("../../assets/pico.orange.min.css");
-
-#[get("/pico.min.css")]
-fn pico_code() -> content::RawCss<&'static str> {
-    content::RawCss(ORANGE)
-}
-
 #[get("/app.css")]
 fn app_css() -> content::RawCss<&'static str> {
     let app = include_str!("../../assets/app.css");
+    content::RawCss(app)
+}
+
+#[get("/pure.css")]
+fn pure_css() -> content::RawCss<&'static str> {
+    let app = include_str!("../../assets/pure.css");
+    content::RawCss(app)
+}
+
+#[get("/project.svg")]
+fn project_svg() -> content::RawHtml<&'static str> {
+    let app = include_str!("../../assets/project.svg");
+    content::RawHtml(app)
+}
+
+#[get("/pure-grid.css")]
+fn pure_grid_css() -> content::RawCss<&'static str> {
+    let app = include_str!("../../assets/pure-grid.css");
     content::RawCss(app)
 }
 
@@ -19,28 +30,10 @@ fn htmx_code() -> content::RawJavaScript<&'static str> {
     content::RawJavaScript(app)
 }
 
-#[get("/echarts.js")]
-fn echarts_code() -> content::RawJavaScript<&'static str> {
-    let app = include_str!("../../assets/echarts.js");
-    content::RawJavaScript(app)
-}
-
-#[get("/theme_chooser.js")]
-fn theme_chooser_code() -> content::RawJavaScript<&'static str> {
-    let app = include_str!("../../assets/theme_chooser.js");
-    content::RawJavaScript(app)
-}
-
 #[get("/alpine.min.js")]
 fn alpine_code() -> content::RawJavaScript<&'static str> {
     let app = include_str!("../../assets/alpine.min.js");
     content::RawJavaScript(app)
-}
-
-#[get("/pico_ext.css")]
-fn pico_ext_css() -> content::RawCss<&'static str> {
-    let app = include_str!("../../assets/pico_ext.css");
-    content::RawCss(app)
 }
 
 pub fn mount_assets(rocket: Rocket<Build>) -> Rocket<Build> {
@@ -50,10 +43,9 @@ pub fn mount_assets(rocket: Rocket<Build>) -> Rocket<Build> {
             htmx_code,
             alpine_code,
             app_css,
-            pico_code,
-            pico_ext_css,
-            theme_chooser_code,
-            echarts_code
+            pure_css,
+            pure_grid_css,
+            project_svg
         ],
     )
 }

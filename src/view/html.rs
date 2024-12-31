@@ -205,7 +205,7 @@ fn end() -> Markup {
 fn footer() -> Markup {
     html! {
         div."footer l-box is-center" {
-            "Made with me"
+            "Made by me"
         }
     }
 }

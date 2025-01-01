@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/LunchTimeCode/me/compare/v0.4.0...v0.4.1) (2025-01-01)
+
+
+### Bug Fixes
+
+* mobile responsive ([276986e](https://github.com/LunchTimeCode/me/commit/276986eaadf88cfa5e73fdbe8c20c8989a563199))
+
 ## [0.4.0](https://github.com/LunchTimeCode/me/compare/v0.3.1...v0.4.0) (2025-01-01)
 
 

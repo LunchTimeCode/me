@@ -25,6 +25,9 @@ pub fn page(is_htmx: bool, markup: Markup) -> Markup {
        html {
 
             head {
+                meta charset="utf-8";
+                meta name="viewport" content="width=device-width, initial-scale=1.0";
+                meta name="description" content="My homepage";
                 ({scripts()})
                 ({title("Silen Locatelli")})
             }

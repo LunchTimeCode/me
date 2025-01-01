@@ -118,10 +118,10 @@ fn content() -> Markup {
 fn ribbon() -> Markup {
     html! {
         div."ribbon l-box-lrg pure-g" {
-            div."l-box is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5" {
+            div."l-box is-center pure-u-1 pure-u-md-3-5 pure-u-lg-2-5" {
                 (project())
             }
-            div."pure-u-1 pure-u-md-1-2 pure-u-lg-3-5" {
+            div."pure-u-1 pure-u-md-4-5 pure-u-lg-3-5" {
                 h2."content-head content-head-ribbon" {
                     "Projects"
                 }

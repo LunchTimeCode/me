@@ -182,7 +182,7 @@ fn end() -> Markup {
                         "Running on"
                     }
                     p {
-                        "An a Rasberry Pi 5"
+                        "A Rasberry Pi 5"
                     }
                 }
             }

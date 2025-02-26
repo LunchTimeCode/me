@@ -1,51 +1,45 @@
-use rocket::{response::content, Build, Rocket};
+use include_directory::{include_directory, Dir, File};
+use rocket::{get, http::ContentType, routes, Route};
+use std::path::Path;
 
-#[get("/app.css")]
-fn app_css() -> content::RawCss<&'static str> {
-    let app = include_str!("../../assets/app.css");
-    content::RawCss(app)
+#[get("/<asset>")]
+fn assets(asset: &str) -> (ContentType, Vec<u8>) {
+    let file = read_any_file(asset);
+    let bytes = file.contents();
+
+    let file_type = asset.split('.').last().unwrap();
+
+    let ct: ContentType = match file_type {
+        "js" => ContentType::JavaScript,
+        "css" => ContentType::CSS,
+        "html" => ContentType::HTML,
+        "png" => ContentType::PNG,
+        "svg" => ContentType::SVG,
+        "json" => ContentType::JSON,
+        "xml" => ContentType::XML,
+        "msgpack" => ContentType::MsgPack,
+        "txt" => ContentType::Plain,
+        "ico" => ContentType::Icon,
+        _ => {
+            return (
+                ContentType::Plain,
+                "Unexpected type requested".as_bytes().to_vec(),
+            );
+        }
+    };
+    (ct, bytes.to_vec())
 }
 
-#[get("/pure.css")]
-fn pure_css() -> content::RawCss<&'static str> {
-    let app = include_str!("../../assets/pure.css");
-    content::RawCss(app)
+pub fn api() -> (&'static str, Vec<Route>) {
+    ("/_assets", routes![assets])
 }
 
-#[get("/project.svg")]
-fn project_svg() -> content::RawHtml<&'static str> {
-    let app = include_str!("../../assets/project.svg");
-    content::RawHtml(app)
-}
+static PROJECT_DIR: Dir<'_> = include_directory!("assets");
 
-#[get("/pure-grid.css")]
-fn pure_grid_css() -> content::RawCss<&'static str> {
-    let app = include_str!("../../assets/pure-grid.css");
-    content::RawCss(app)
-}
-
-#[get("/htmx.min.js")]
-fn htmx_code() -> content::RawJavaScript<&'static str> {
-    let app = include_str!("../../assets/htmx.min.js");
-    content::RawJavaScript(app)
-}
-
-#[get("/alpine.min.js")]
-fn alpine_code() -> content::RawJavaScript<&'static str> {
-    let app = include_str!("../../assets/alpine.min.js");
-    content::RawJavaScript(app)
-}
-
-pub fn mount_assets(rocket: Rocket<Build>) -> Rocket<Build> {
-    rocket.mount(
-        "/_assets",
-        routes![
-            htmx_code,
-            alpine_code,
-            app_css,
-            pure_css,
-            pure_grid_css,
-            project_svg
-        ],
-    )
+pub fn read_any_file(name: &str) -> File {
+    let path = Path::new(name);
+    let file = PROJECT_DIR
+        .get_file(path)
+        .unwrap_or_else(|| panic!("could not find file this name: {}", path.to_str().unwrap()));
+    file.clone()
 }

@@ -1,12 +1,9 @@
-use assets::mount_assets;
 use rocket::{Build, Rocket};
-use tec::mount_tec;
 
 #[macro_use]
 extern crate rocket;
 
 mod assets;
-mod tec;
 mod view;
 
 #[launch]
@@ -21,7 +18,7 @@ fn rocket() -> _ {
 fn mount(rocket: Rocket<Build>) -> Rocket<Build> {
     let with_index = rocket.mount("/", routes![view::index,]);
 
-    let with_assets = mount_assets(with_index);
+    let (asset_path, asset_routes) = assets::api();
 
-    mount_tec(with_assets)
+    with_index.mount(asset_path, asset_routes)
 }

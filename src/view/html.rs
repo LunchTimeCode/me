@@ -27,6 +27,11 @@ pub fn header() -> Markup {
                             "LinkedIn"
                         }
                     }
+                    li."pure-menu-item" {
+                        a."pure-menu-link" href="https://jobs.silenlocatelli.ch" {
+                            "A Jobseeking tool"
+                        }
+                    }
                 }
             }
         }
@@ -177,7 +182,7 @@ fn end() -> Markup {
                         "Running on"
                     }
                     p {
-                        "An old Laptop"
+                        "An a Rasberry Pi 5"
                     }
                 }
             }

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.3](https://github.com/LunchTimeCode/me/compare/v0.4.2...v0.4.3) (2025-02-26)
+
+
+### Bug Fixes
+
+* typo ([790228e](https://github.com/LunchTimeCode/me/commit/790228ef7448e2e7f2d3da7d78888c484178ac72))
+
 ## [0.4.2](https://github.com/LunchTimeCode/me/compare/v0.4.1...v0.4.2) (2025-02-26)
 
 

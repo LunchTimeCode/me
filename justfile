@@ -23,7 +23,7 @@ lint:
 fmt:
     cargo fmt
     
-build:
+build-binary:
     cargo build --release
 
 build version:

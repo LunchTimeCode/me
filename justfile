@@ -22,7 +22,9 @@ lint:
 
 fmt:
     cargo fmt
-
+    
+build:
+    cargo build --release
 
 build version:
     docker build -t {{image_name}}:{{version}} .

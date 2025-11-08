@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.4](https://github.com/LunchTimeCode/me/compare/v0.4.3...v0.4.4) (2025-11-08)
+
+
+### Bug Fixes
+
+* remove unused assets ([47fb5a9](https://github.com/LunchTimeCode/me/commit/47fb5a9a0d00adec61fd6dbfeafbb4f582932c69))
+
 ## [0.4.3](https://github.com/LunchTimeCode/me/compare/v0.4.2...v0.4.3) (2025-02-26)
 
 

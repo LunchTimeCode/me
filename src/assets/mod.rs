@@ -7,7 +7,7 @@ fn assets(asset: &str) -> (ContentType, Vec<u8>) {
     let file = read_any_file(asset);
     let bytes = file.contents();
 
-    let file_type = asset.split('.').last().unwrap();
+    let file_type = asset.split('.').next_back().unwrap();
 
     let ct: ContentType = match file_type {
         "js" => ContentType::JavaScript,
@@ -36,7 +36,7 @@ pub fn api() -> (&'static str, Vec<Route>) {
 
 static PROJECT_DIR: Dir<'_> = include_directory!("assets");
 
-pub fn read_any_file(name: &str) -> File {
+pub fn read_any_file(name: &str) -> File<'_> {
     let path = Path::new(name);
     let file = PROJECT_DIR
         .get_file(path)

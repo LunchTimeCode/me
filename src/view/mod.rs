@@ -13,8 +13,6 @@ pub fn index(is_htmx: IsHtmx) -> content::RawHtml<String> {
 const CSS: &str = r#"<link rel="stylesheet" href="_assets/app.css">"#;
 const PURE_CSS: &str = r#"<link rel="stylesheet" href="_assets/pure.css">"#;
 const PURE_GRID_CSS: &str = r#"<link rel="stylesheet" href="_assets/pure-grid.css">"#;
-const HTMX: &str = r#"<script src="/_assets/htmx.min.js"></script>"#;
-const ALPINE: &str = r#"<script src="/_assets/alpine.min.js"></script>"#;
 
 pub fn page(is_htmx: bool, markup: Markup) -> Markup {
     if is_htmx {
@@ -42,8 +40,6 @@ pub fn page(is_htmx: bool, markup: Markup) -> Markup {
 fn scripts() -> Markup {
     html! {
        (PreEscaped(CSS))
-       (PreEscaped(HTMX))
-       (PreEscaped(ALPINE))
        (PreEscaped(PURE_CSS))
        (PreEscaped(PURE_GRID_CSS))
     }
@@ -52,19 +48,6 @@ fn scripts() -> Markup {
 fn title(title: impl Into<String>) -> Markup {
     html! {
     title { ({title.into()}) }
-    }
-}
-
-pub enum Theme {
-    Orange,
-}
-
-impl From<String> for Theme {
-    fn from(value: String) -> Self {
-        match value.as_str() {
-            "orange" => Theme::Orange,
-            _ => Theme::Orange,
-        }
     }
 }
 

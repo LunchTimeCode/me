@@ -22,6 +22,7 @@ lint:
 
 fmt:
     cargo fmt
+    cargo fix --allow-dirty --allow-staged
     
 build-binary:
     cargo build --release

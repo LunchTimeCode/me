@@ -1,0 +1,116 @@
+User-agent: *
+
+# Block all PHP files and directories
+Disallow: *.php
+Disallow: *.php$
+Disallow: /php/
+Disallow: /includes/
+Disallow: /config/
+Disallow: /lib/
+Disallow: /libs/
+
+# Block admin and private areas
+Disallow: /admin/
+Disallow: /administrator/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /dashboard/
+Disallow: /panel/
+Disallow: /control/
+Disallow: /cpanel/
+Disallow: /private/
+Disallow: /secure/
+
+# Block common CMS and framework paths
+Disallow: /drupal/
+Disallow: /joomla/
+Disallow: /magento/
+Disallow: /wordpress/
+Disallow: /typo3/
+Disallow: /concrete5/
+Disallow: /prestashop/
+
+# Block development and system files
+Disallow: /dev/
+Disallow: /test/
+Disallow: /tests/
+Disallow: /testing/
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /backup/
+Disallow: /backups/
+Disallow: /logs/
+Disallow: /log/
+Disallow: /uploads/
+Disallow: /downloads/
+Disallow: /media/private/
+
+# Block common file extensions
+Disallow: *.log
+Disallow: *.sql
+Disallow: *.bak
+Disallow: *.old
+Disallow: *.orig
+Disallow: *.save
+Disallow: *.swp
+Disallow: *.tmp
+
+# Block version control and development files
+Disallow: /.git/
+Disallow: /.svn/
+Disallow: /.hg/
+Disallow: /.bzr/
+Disallow: /CVS/
+Disallow: /.env
+Disallow: /.htaccess
+Disallow: /.htpasswd
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /yarn.lock
+Disallow: /Gruntfile.js
+Disallow: /gulpfile.js
+Disallow: /webpack.config.js
+
+# Block API endpoints that shouldn't be indexed
+Disallow: /api/
+Disallow: /rest/
+Disallow: /ajax/
+Disallow: /json/
+Disallow: /xml/
+
+# Block search and filter pages (to avoid duplicate content)
+Disallow: /search
+Disallow: /search/
+Disallow: /*?q=
+Disallow: /*?search=
+Disallow: /*?s=
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?page=
+Disallow: /*?p=
+
+# Block common attack vectors and security-related paths
+Disallow: /phpmyadmin/
+Disallow: /phpMyAdmin/
+Disallow: /mysql/
+Disallow: /database/
+Disallow: /db/
+Disallow: /shell/
+Disallow: /cmd/
+Disallow: /exec/
+
+# Allow common static assets (optional - remove if you want to block these too)
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /img/
+Allow: /static/
+Allow: /public/
+
+# Specify sitemap location (update path as needed)
+# Sitemap: https://yourdomain.com/sitemap.xml

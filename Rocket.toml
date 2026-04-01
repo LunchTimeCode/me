@@ -5,4 +5,4 @@ port = 8000
 limits = { json = "10MiB" }
 
 [release]
-port = 12500
+port = 80

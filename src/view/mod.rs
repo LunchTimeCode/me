@@ -2,12 +2,16 @@ use maud::{html, Markup, PreEscaped};
 use rocket::outcome::Outcome;
 use rocket::request::{self, FromRequest, Request};
 use rocket::response::content;
-
 mod html;
 
 #[get("/")]
 pub fn index(is_htmx: IsHtmx) -> content::RawHtml<String> {
     content::RawHtml(page(is_htmx.is_htmx, html::get()).into_string())
+}
+
+#[get("/up")]
+pub fn up() -> &'static str {
+    "All up"
 }
 
 const CSS: &str = r#"<link rel="stylesheet" href="_assets/app.css">"#;

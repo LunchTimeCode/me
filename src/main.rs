@@ -16,7 +16,7 @@ fn rocket() -> _ {
 }
 
 fn mount(rocket: Rocket<Build>) -> Rocket<Build> {
-    let with_index = rocket.mount("/", routes![view::index,]);
+    let with_index = rocket.mount("/", routes![view::index, view::up]);
 
     let (asset_path, asset_routes) = assets::api();
 

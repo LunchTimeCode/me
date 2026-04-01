@@ -5,6 +5,7 @@ FROM rust:1.83-slim as builder
 WORKDIR /usr/src/app
 COPY . .
 
+COPY Rocket.toml Rocket.toml
 # Build your program for release
 RUN cargo build --release
 

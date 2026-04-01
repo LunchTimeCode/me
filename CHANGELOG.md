@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.5](https://github.com/LunchTimeCode/me/compare/v0.4.4...v0.4.5) (2026-04-01)
+
+
+### Bug Fixes
+
+* prepare for once ([8b80a2e](https://github.com/LunchTimeCode/me/commit/8b80a2e0debed14d0e2ce3779ddd412ae0920586))
+* robot.txt ([b2eccb1](https://github.com/LunchTimeCode/me/commit/b2eccb1e2c65ff03b8678986e2f5740f742eb441))
+
 ## [0.4.4](https://github.com/LunchTimeCode/me/compare/v0.4.3...v0.4.4) (2025-11-08)
 
 

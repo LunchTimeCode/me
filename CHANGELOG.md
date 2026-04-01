@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.7](https://github.com/LunchTimeCode/me/compare/v0.4.6...v0.4.7) (2026-04-01)
+
+
+### Bug Fixes
+
+* port ([0ca90b9](https://github.com/LunchTimeCode/me/commit/0ca90b9e254f1edab431f6f4756d98078c80e28c))
+
 ## [0.4.6](https://github.com/LunchTimeCode/me/compare/v0.4.5...v0.4.6) (2026-04-01)
 
 
